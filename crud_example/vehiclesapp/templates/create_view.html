@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block tittle %}Registro de Vehículos{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Registro de Vehículo</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    <!-- Security token -->
+    {% csrf_token %}
+
+    <!-- Using the formset -->
+    <div class="form-group">
+        {{ form.placa.label_tag }}
+        {{ form.placa }}
+        {% if form.placa.errors %}
+            <div class="text-danger">{{ form.placa.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form.marca.label_tag }}
+        {{ form.marca }}
+        {% if form.marca.errors %}
+            <div class="text-danger">{{ form.marca.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form.modelo.label_tag }}
+        {{ form.modelo }}
+        {% if form.modelo.errors %}
+            <div class="text-danger">{{ form.modelo.errors }}</div>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form.color.label_tag }}  <!-- CAMBIADO: de color_vehiculo a color -->
+        {{ form.color }}
+        {% if form.color.errors %}
+            <div class="text-danger">{{ form.color.errors }}</div>
+        {% endif %}
+    </div>
+
+    <input type="submit" value="Guardar Vehículo" class="btn btn-primary">
+</form>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!-- delete_view.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header bg-danger text-white">
+        <h2>Confirmar Eliminación</h2>
+    </div>
+    <div class="card-body">
+        <p>¿Estás seguro de que deseas eliminar el siguiente vehículo?</p>
+        
+        <div class="alert alert-warning">
+            <strong>Placa:</strong> {{ object.placa }}<br>
+            <strong>Marca:</strong> {{ object.marca }}<br>
+            <strong>Modelo:</strong> {{ object.modelo }}<br>
+            <strong>Color:</strong> {{ object.get_color_display }}
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">
+                <i class="fa fa-trash"></i> Sí, Eliminar
+            </button>
+            <a href="/" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

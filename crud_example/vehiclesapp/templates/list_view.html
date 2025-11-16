@@ -1,0 +1,43 @@
+<!-- list_view.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h1>Vehículos</h1>
+
+<a href="/create/" class="btn btn-primary mb-3">
+    <i class="fa fa-plus"></i> Agregar Vehículo
+</a>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Placa</th>
+            <th>Marca</th>
+            <th>Color</th>
+            <th>Modelo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in dataset %}
+        <tr>
+            <td>{{ data.placa }}</td>
+            <td>{{ data.marca }}</td>
+            <td>{{ data.get_color_display }}</td>
+            <td>{{ data.modelo }}</td>
+            <td>
+                <a href="/update/{{ data.id }}/" class="btn btn-sm btn-warning">
+                    <i class="fa fa-edit"></i> Editar
+                </a>
+                <a href="/delete/{{ data.id }}/" class="btn btn-sm btn-danger">  <!-- Cambiado para ir directamente a confirmación -->
+                    <i class="fa fa-trash"></i> Eliminar
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" class="text-center">No hay vehículos registrados</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
