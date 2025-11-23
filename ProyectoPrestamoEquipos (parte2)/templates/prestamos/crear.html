@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Registrar Préstamo</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Seleccione el equipo:</label>
+    <select name="equipo" class="form-control">
+        {% for e in equipos %}
+        <option value="{{ e.id }}">{{ e.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-success mt-3">Guardar</button>
+</form>
+
+{% endblock %}

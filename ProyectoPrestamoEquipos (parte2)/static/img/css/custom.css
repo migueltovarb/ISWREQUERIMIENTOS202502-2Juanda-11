@@ -1,0 +1,9 @@
+.hero-section {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    transition: 0.2s ease-in-out;
+}

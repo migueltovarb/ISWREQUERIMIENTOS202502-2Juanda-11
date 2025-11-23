@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<div class="hero-section text-center p-5" style="background: linear-gradient(#0d3d63, #0b2f4d); color: white;">
+    <h1 class="display-4 fw-bold">Aplicación para Préstamo de Equipos Deportivos</h1>
+    <p class="lead mt-3">
+        Gestiona fácilmente el préstamo, devolución y control del inventario de equipos deportivos.
+    </p>
+
+    <div class="mt-4">
+        <a href="/inventario/" class="btn btn-light btn-lg me-3 shadow-sm">
+            📦 Ver Inventario
+        </a>
+
+        <a href="/prestamos/" class="btn btn-outline-light btn-lg shadow-sm">
+            ➕ Gestionar Préstamos
+        </a>
+    </div>
+</div>
+
+<!-- Sección de características -->
+<div class="container mt-5">
+    <h2 class="text-center fw-bold mb-4">¿Qué puedes hacer en la aplicación?</h2>
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-3 h-100">
+                <h4 class="text-center">📦 Inventario moderno</h4>
+                <p class="text-muted mt-2">
+                    Consulta en tiempo real la disponibilidad de equipos y su estado actual.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-3 h-100">
+                <h4 class="text-center">📝 Préstamos rápidos</h4>
+                <p class="text-muted mt-2">
+                    Solicita y registra préstamos con un solo clic, de manera fácil y organizada.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-3 h-100">
+                <h4 class="text-center">⏱ Devoluciones controladas</h4>
+                <p class="text-muted mt-2">
+                    Marca devoluciones y mantén el control del flujo de equipos prestados.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

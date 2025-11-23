@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Inventario{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4 fw-bold">Inventario de Equipos</h1>
+
+<div class="text-end mb-3">
+    <a href="{% url 'inventario:registrar_equipo' %}" class="btn btn-primary">
+        Registrar Nuevo Equipo
+
+    <a href="{% url 'inventario:reporte_equipos_pdf' %}" 
+        class="btn btn-secondary mb-3">
+        Descargar PDF
+    </a>
+</div>
+
+<div class="row">
+    {% for equipo in equipos %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                
+                {% if equipo.imagen %}
+                <img src="{{ equipo.imagen.url }}" class="card-img-top" style="height: 220px; object-fit: cover;">
+                {% else %}
+                <img src="https://via.placeholder.com/300x220?text=Sin+Imagen" class="card-img-top">
+                {% endif %}
+                
+                <div class="card-body">
+                    <h5 class="fw-bold">{{ equipo.nombre }}</h5>
+                    <p><strong>Categoría:</strong> {{ equipo.categoria.nombre }}</p>
+                    <p><strong>Cantidad total:</strong> {{ equipo.cantidad_total }}</p>
+                    <p><strong>Cantidad disponible:</strong> {{ equipo.cantidad_disponible }}</p>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-center">Aún no hay equipos registrados.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

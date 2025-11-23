@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Lista de Préstamos</h2>
+
+<a href="{% url 'crear_prestamo' %}" class="btn btn-success">Nuevo préstamo</a>
+
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th>Equipo</th>
+            <th>Usuario</th>
+            <th>Fecha</th>
+            <th>Devuelto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in prestamos %}
+        <tr>
+            <td>{{ p.equipo.nombre }}</td>
+            <td>{{ p.usuario.username }}</td>
+            <td>{{ p.fecha_prestamo }}</td>
+            <td>
+                {% if p.devuelto %}
+                    Sí
+                {% else %}
+                    No
+                {% endif %}
+            </td>
+            <td>
+                {% if not p.devuelto %}
+                <a href="{% url 'devolver_prestamo' p.id %}" class="btn btn-primary">Marcar devolución</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
